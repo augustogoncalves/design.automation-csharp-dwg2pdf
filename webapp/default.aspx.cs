@@ -1,10 +1,4 @@
-﻿using Amazon.S3;
-using Autodesk.Forge;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
-/////////////////////////////////////////////////////////////////////
+﻿/////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
 // Written by Forge Partner Development
 //
@@ -22,6 +16,12 @@ using System.IO;
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
+using Amazon.S3;
+using Autodesk.Forge;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Web;
 
@@ -106,7 +106,7 @@ namespace webapp
       System.Threading.Thread.Sleep(5000); // wait 1 second
       // get the status
       string id = workitem.Id;
-      dynamic status = await workItemsApi.GetWorkItemAsync(id);  // Due an issue with the .NET SDK, this is not working (#17)
+      dynamic status = await workItemsApi.GetWorkItemAsync(id); 
 
       // download the PDF from S3 to our server
       fileSavePath = fileSavePath.Replace(".dwg", ".pdf");
